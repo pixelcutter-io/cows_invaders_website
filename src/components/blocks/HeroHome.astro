@@ -1,0 +1,44 @@
+---
+import { useTranslations } from "@/i18n/i18n";
+import Typo from "../typography/Typo.astro";
+import AppStoreLink from "@/components/AppStoreLink.astro";
+
+const t = useTranslations("en");
+---
+
+<div class="hero">
+  <h1 class="title">
+    <span>Cows</span>
+    <span>Invaders</span>
+  </h1>
+  <Typo class="text" text={t("block.hero.text")} tag="p" size={["df", "qt"]} sizeIncrease={3} color="accent"/>
+  <AppStoreLink size="qr" gap="xxl"/>
+</div>
+
+<style lang="scss">
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--s-db);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 19cqw;
+  font-weight: var(--fw-black);
+  text-transform: uppercase;
+  line-height: 0.8;
+}
+
+.hero :global(.text) {
+  text-align: center;
+  margin-bottom: var(--s-big);
+}
+
+</style>

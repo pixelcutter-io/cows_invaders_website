@@ -1,0 +1,62 @@
+---
+import "@/styles/main.scss";
+import Button from "../Button.astro";
+import Footer from "./Footer.astro";
+import Header from "./Header/Header.astro";
+
+interface Props {
+	theme?: "default" | "home" | "project" | "contacts";
+}
+
+const { theme = "default" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content="/og_img.png" />
+		<meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Help the cows take revenge on the aliens."/>
+		<title>Cows Invaders</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	</head>
+	<body>
+	<main id="main_content" class:list={["main", theme]}>
+	  <slot />
+		<Footer />
+	</main>
+	</body>
+</html>
+
+<style lang="scss">
+  .main {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 5rem;
+		padding-inline: var(--s-xxl);
+		gap: var(--s-big);
+		
+		@include media(lg) {
+			gap: var(--s-qt);
+		}
+  }
+
+
+  // Skip link
+  :global(.skip) {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: var(--z-index-top);
+  }
+
+  :global(.skip):focus-visible {
+    @include focus-visible;
+    top: 1rem;
+    left: 1rem;
+  }
+</style>

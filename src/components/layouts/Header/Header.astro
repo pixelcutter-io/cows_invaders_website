@@ -1,0 +1,72 @@
+---
+
+import Menu from "@/assets/icons/menu.svg";
+import { useTranslations } from "@/i18n/i18n.ts";
+import ItemHeader from "./ItemHeader.astro";
+import Button from "@/components/Button.astro";
+import AppStoreLink from "@/components/AppStoreLink.astro";
+
+const t = useTranslations("en");
+
+const menu = [
+	{
+		label: t("menu.game"),
+		path: "#game",
+	},
+	{
+		label: t("menu.genesis"),
+		path: "#genesis",
+	},
+	{
+		label: t("menu.about"),
+		path: "#about",
+	},
+];
+---
+
+<header class="header">
+  <nav class="desktop-nav">
+    {menu.map((item) => (
+      <ItemHeader label={item.label} href={item.path}  />
+    ))}
+  </nav>
+  <AppStoreLink />
+</header>
+
+
+<script>
+  import { smoothScroll } from '@/utils/smoothScroll.ts';
+  smoothScroll('.header a[href^="#"]', '.header');
+</script>
+
+<style lang="scss">
+  .header {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-uxs);
+    padding-inline: var(--s-xxl);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-2);
+    background-color: var(--c-primary);
+
+    @include media(sm) {
+      justify-content: space-between;
+      gap: var(--s-df);
+      padding-inline: var(--s-big);
+    }
+  }
+
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    
+    @include media(sm) {
+      display: flex;
+    }
+  }
+</style>

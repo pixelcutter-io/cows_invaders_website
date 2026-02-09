@@ -1,0 +1,61 @@
+---
+import MarkdownText from "@/components/typography/MarkdownText.astro";
+import Typo from "@/components/typography/Typo.astro";
+
+
+interface Props {
+	title: string;
+	text: string;
+  image: string;
+  reverse?: boolean;
+  id?: string;
+}
+
+const { title, text, image, reverse, id } = Astro.props;
+---
+<div class:list={["wrapper", reverse && "reverse"]} id={id}>
+  <article>
+    <Typo text={title} tag={"h2"} weight={"black"} color={"secondary"} size={["tr", "qr"]} balancer />
+    <MarkdownText text={text} color={"secondary"} size={['lg', 'db']}  />
+  </article>
+  <img src={image} alt={title}/>
+</div>
+
+<style lang="scss">
+.wrapper {
+  width: 100%;
+  max-width: var(--w-max-xxl);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'article' 'img';
+  gap: 5vw;
+  
+  @include media(md) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'article img';
+    align-content: start;
+  }
+}
+
+.wrapper article {
+  grid-area: article;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-xxl);
+}
+
+.wrapper img {
+  grid-area: img;
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+.reverse {
+  @include media(md) {
+    grid-template-areas: 'img article';
+  }
+}
+
+</style>

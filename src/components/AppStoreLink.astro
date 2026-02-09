@@ -1,0 +1,55 @@
+---
+import Apple from "@/assets/images/apple_store.svg";
+import Google from "@/assets/images/google_store.svg";
+import type {SizeType} from "@/types/components.ts";
+
+interface Props {
+  size?: SizeType;
+  gap?: SizeType;
+}
+
+const {
+  size = "db",
+  gap = "df",
+} = Astro.props;
+
+const style = {
+  "--l-h": `var(--s-${size})`,
+  "--l-gap": `var(--s-${gap})`,
+};
+---
+
+<div class="wrapper" style={style}>
+  <a href="">
+    <Apple width="100%" height={`var(--s-${size})`} />
+  </a>
+  <a href="">
+    <Google width="100%" height={`var(--s-${size})`}  />
+  </a>
+</div>
+
+<style lang="scss">
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--l-gap);
+  }
+  
+  .wrapper a {
+    height: var(--l-h);
+    border-radius: calc(var(--l-h) * 0.15);
+    transition: var(--transition-025);
+  }
+  
+  .wrapper a:active,
+  .wrapper a:hover ,
+  .wrapper a:focus-visible {
+    outline: 0.125rem solid var(--c-accent);
+    outline-offset: 0.25rem;
+  }
+  
+  
+  
+  
+</style>

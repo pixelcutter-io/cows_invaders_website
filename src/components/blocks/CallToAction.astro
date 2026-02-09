@@ -1,0 +1,37 @@
+---
+import { useTranslations } from "@/i18n/i18n";
+import type { AlignType, ColorType } from "../../types/components";
+import Typo from "../typography/Typo.astro";
+import AppStoreLink from "@/components/AppStoreLink.astro";
+
+const t = useTranslations("en");
+---
+
+<section class="wrapper">
+  <Typo
+    class="text"
+    text={t("block.cta.text")}
+    tag="h2"
+    weight="black"
+    color="accent"
+    size={["tr", "sp"]}
+    align="center"
+  />
+  <AppStoreLink size="qr" gap="xxl"/>
+</section>
+
+<style lang="scss">
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-qr);
+  
+  }
+  
+  .wrapper :global(.text) {
+    font-size: 7.5cqw;
+    text-transform: uppercase;
+  }
+</style>
