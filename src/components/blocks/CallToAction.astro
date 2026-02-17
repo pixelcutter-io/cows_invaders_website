@@ -3,6 +3,7 @@ import { useTranslations } from "@/i18n/i18n";
 import type { AlignType, ColorType } from "../../types/components";
 import Typo from "../typography/Typo.astro";
 import AppStoreLink from "@/components/AppStoreLink.astro";
+import Cta from '@/assets/images/cta.png';
 
 const t = useTranslations("en");
 ---
@@ -17,7 +18,8 @@ const t = useTranslations("en");
     size={["tr", "sp"]}
     align="center"
   />
-  <AppStoreLink size="qr" gap="xxl"/>
+  <AppStoreLink size="qt" gap="xxl"/>
+  <img class="img" src={Cta.src} alt=""/>
 </section>
 
 <style lang="scss">
@@ -33,5 +35,18 @@ const t = useTranslations("en");
   .wrapper :global(.text) {
     font-size: 7.5cqw;
     text-transform: uppercase;
+  }
+  
+  .img {
+    width: 100vw;
+    aspect-ratio: 2/1;
+    
+    @include media(sm) {
+      width: 75vw;
+    }
+    
+    @include media(md) {
+      width: 60vw;
+    }
   }
 </style>

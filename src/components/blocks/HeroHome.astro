@@ -2,16 +2,19 @@
 import { useTranslations } from "@/i18n/i18n";
 import Typo from "../typography/Typo.astro";
 import AppStoreLink from "@/components/AppStoreLink.astro";
+import Hero from "@/assets/images/hero.png";
+import Space from "@/assets/images/space.png";
 
 const t = useTranslations("en");
 ---
 
-<div class="hero">
+<div class="hero" style={`--bg-space: url(${Space.src})`}>
   <h1 class="title">
     <span>Cows</span>
     <span>Invaders</span>
   </h1>
-  <Typo class="text" text={t("block.hero.text")} tag="p" size={["df", "qt"]} sizeIncrease={3} color="accent"/>
+  <img class="img" src={Hero.src} alt=""/>
+  <Typo class="text" text={t("block.hero.text")} tag="p" weight="semi" size={["df", "tr"]} sizeIncrease={3} color="accent" balancer/>
   <AppStoreLink size="qr" gap="xxl"/>
 </div>
 
@@ -22,7 +25,13 @@ const t = useTranslations("en");
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 5rem;
   gap: var(--s-db);
+  position: relative;
+  background-image: var(--bg-space);
+  background-position: center 50%;
+  background-size: 35%;
+  background-repeat: repeat;
 }
 
 .title {
@@ -36,9 +45,42 @@ const t = useTranslations("en");
   line-height: 0.8;
 }
 
+.img {
+  width: 25cqw;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 22cqw;
+  left: 3cqw;
+  
+  @include media(sm) {
+    top: 13cqw;
+    left: 5cqw;
+  }
+  
+  @include media(md) {
+    top: 11cqw;
+    left: 6cqw;
+  }
+  
+  @include media(lg) {
+    top: 10cqw;
+    left: 6cqw;
+  }
+  
+  @include media(xl) {
+    top: 10cqw;
+    left: 7cqw;
+  }
+}
+
 .hero :global(.text) {
   text-align: center;
+  text-transform: uppercase;
   margin-bottom: var(--s-big);
+  
+  @include media(lg) {
+    max-width: 80vw;
+  }
 }
 
 </style>

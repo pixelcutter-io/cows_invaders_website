@@ -1,27 +1,33 @@
 ---
 import MarkdownText from "@/components/typography/MarkdownText.astro";
 import { useTranslations } from "@/i18n/i18n";
+import Planet from "@/assets/images/planet.png";
 
 const t = useTranslations("en");
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="footer">
-  <MarkdownText text={t('footer.text', {year: currentYear.toString()})} size={'sm'} />
+<footer class="footer" style={`--bg-planet: url(${Planet.src})`}>
+  <MarkdownText text={t('footer.text', {year: currentYear.toString()})} size={'md'} color="primary" />
 </footer>
 
 
 <style lang="scss">
 .footer {
-  min-height: 3rem;
+  min-height: 20rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-inline: var(--s-big);
-  padding-block: var(--s-df);
+  align-items: flex-end;
+  padding-inline: var(--s-xxl);
+  margin-inline: calc(-1 * var(--s-xxl));
+  padding-block: var(--s-xxl);
   background-color: var(--c-primary);
   margin-top: auto;
   text-align: center;
+  background-image: var(--bg-planet);
+  background-position: center top;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .footer :global(em) {
