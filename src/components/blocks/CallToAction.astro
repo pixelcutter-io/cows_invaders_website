@@ -3,23 +3,25 @@ import { useTranslations } from "@/i18n/i18n";
 import type { AlignType, ColorType } from "../../types/components";
 import Typo from "../typography/Typo.astro";
 import AppStoreLink from "@/components/AppStoreLink.astro";
-import Cta from '@/assets/images/cta.png';
+import CtaImg from '@/assets/images/web_cta.png';
 
 const t = useTranslations("en");
 ---
 
 <section class="wrapper">
-  <Typo
-    class="text"
-    text={t("block.cta.text")}
-    tag="h2"
-    weight="black"
-    color="accent"
-    size={["tr", "sp"]}
-    align="center"
-  />
-  <AppStoreLink size="qt" gap="xxl"/>
-  <img class="img" src={Cta.src} alt=""/>
+  <article>
+    <Typo
+      class="text"
+      text={t("block.cta.text")}
+      tag="h2"
+      weight="black"
+      color="accent"
+      size={["tr", "sp"]}
+      align="center"
+    />
+    <AppStoreLink size="qr" gap="xxl"/>
+  </article>
+  <img class="img" src={CtaImg.src} alt=""/>
 </section>
 
 <style lang="scss">
@@ -29,7 +31,16 @@ const t = useTranslations("en");
     justify-content: center;
     align-items: center;
     gap: var(--s-qr);
+  }
   
+  .wrapper article {
+    max-width: var(--w-max-xxl);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-qr);
   }
   
   .wrapper :global(.text) {
@@ -46,7 +57,7 @@ const t = useTranslations("en");
     }
     
     @include media(md) {
-      width: 60vw;
+      width: 65vw;
     }
   }
 </style>
