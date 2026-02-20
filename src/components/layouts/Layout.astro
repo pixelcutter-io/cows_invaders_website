@@ -7,7 +7,7 @@ interface Props {
 	theme?: "default" | "home" | "project" | "contacts";
 }
 
-const { theme = "default" } = Astro.props;
+const { theme = "home" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,8 +17,8 @@ const { theme = "default" } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
     <meta property="og:image" content="/og_img.png" />
 		<meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Help the cows take revenge on the aliens."/>
-		<title>Cows Invaders</title>
+    <meta name="description" content="Catch the aliens and help the cows of planet MOO42 get their revenge. Pick your hero cow and save the galaxy!"/>
+		<title>Cows Invaders – Galactic Revenge</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>
 	<body>
@@ -42,6 +42,14 @@ const { theme = "default" } = Astro.props;
 			gap: var(--s-qt);
 		}
   }
+	
+	.default {
+		padding-top: var(--s-qt);
+		
+		@include media(lg) {
+			padding-inline: var(--s-qt);
+		}
+	}
 
 
   // Skip link

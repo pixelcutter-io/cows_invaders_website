@@ -16,7 +16,7 @@ const { title, text, image, reverse, id } = Astro.props;
 <div class:list={["wrapper", reverse && "reverse"]} id={id}>
   <article>
     <Typo text={title} tag={"h2"} weight={"black"} color={"secondary"} size={["tr", "qr"]} balancer />
-    <MarkdownText text={text} color={"secondary"} size={['lg', 'db']}  />
+    <MarkdownText text={text} color={"secondary"} size={['df', 'xxl']}  />
   </article>
   <img src={image} alt={title}/>
 </div>
@@ -32,7 +32,7 @@ const { title, text, image, reverse, id } = Astro.props;
   gap: 5vw;
   
   @include media(md) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     grid-template-areas: 'article img';
     align-content: start;
   }
@@ -48,7 +48,6 @@ const { title, text, image, reverse, id } = Astro.props;
 .wrapper img {
   grid-area: img;
   width: 100%;
-  aspect-ratio: 16/10;
   object-fit: cover;
 }
 
