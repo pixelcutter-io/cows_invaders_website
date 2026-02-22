@@ -5,6 +5,7 @@ import Layout from "@/components/layouts/Layout.astro";
 import CallToAction from "@/components/blocks/CallToAction.astro";
 import Img1 from "@/assets/images/web_img_1.png";
 import {useTranslations} from "@/i18n/i18n.ts";
+import Text from "@/components/blocks/Text.astro";
 
 const t = useTranslations("en");
 ---
@@ -13,7 +14,7 @@ const t = useTranslations("en");
   <HeroHome />
 	<MediaText id="game" title={t('block.media_game.title')} text={t('block.media_game.text')} image={Img1.src}/>
   <MediaText id="genesis" title={t('block.media_genesis.title')} text={t('block.media_genesis.text')} image={''} reverse/>
-  <MediaText id="about" title={t('block.media_about.title')} text={t('block.media_about.text')} image={''}/>
+  <Text id="about" title={t('block.media_about.title')} text={t('block.media_about.text')}/>
   <CallToAction/>
 </Layout>
 

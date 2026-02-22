@@ -53,3 +53,4 @@ export type TypoSizeType = Exclude<SizeType, "us" | "uxs" | "uxxs">;
 export type TypoWeightType = "regular" | "medium" | "semi" | "bold" | "black";
 export type TypoLineHeightType = "default" | "paragraph";
 export type TypoAlignType = AlignType;
+export type TypoDecorationType = 'underline' | 'none';

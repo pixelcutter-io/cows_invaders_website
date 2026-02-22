@@ -1,0 +1,39 @@
+---
+import MarkdownText from "@/components/typography/MarkdownText.astro";
+import Typo from "@/components/typography/Typo.astro";
+
+
+interface Props {
+	title: string;
+	text: string;
+  id?: string;
+}
+
+const { title, text, id } = Astro.props;
+---
+<div class="wrapper" id={id}>
+  <article>
+    <Typo text={title} tag={"h2"} weight={"black"} color={"secondary"} size={["tr", "qr"]} align="center" />
+    <MarkdownText text={text} color={"secondary"} size={['df', 'xxl']}  />
+  </article>
+</div>
+
+<style lang="scss">
+.wrapper {
+  width: 100%;
+  max-width: var(--w-max-sm);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.wrapper article {
+  grid-area: article;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s-xxl);
+}
+
+</style>

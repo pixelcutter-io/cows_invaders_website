@@ -2,20 +2,25 @@
 import { useTranslations } from "@/i18n/i18n";
 import Typo from "../typography/Typo.astro";
 import AppStoreLink from "@/components/AppStoreLink.astro";
-import Hero from "@/assets/images/hero.png";
+import HeroImg from "@/assets/images/hero.png";
+import HeroImg2 from "@/assets/images/hero_2.png";
 import Space from "@/assets/images/space.png";
 
 const t = useTranslations("en");
 ---
 
 <div class="hero" style={`--bg-space: url(${Space.src})`}>
+  <img class="bg" src={Space.src} alt=""/>
   <h1 class="title">
     <span>Cows</span>
     <span>Invaders</span>
   </h1>
-  <img class="img" src={Hero.src} alt=""/>
-  <Typo class="text" text={t("block.hero.text")} tag="p" weight="semi" size={["df", "tr"]} sizeIncrease={3} color="accent" balancer/>
-  <AppStoreLink size="qr" gap="xxl"/>
+  <img class="img" src={HeroImg.src} alt=""/>
+  <img class="img2" src={HeroImg2.src} alt=""/>
+  <article>
+    <Typo class="text" text={t("block.hero.text")} tag="p" weight="semi" size={["df", "tr"]} sizeIncrease={3} color="accent" balancer/>
+    <AppStoreLink size="qr" gap="xxl"/>
+  </article>
 </div>
 
 <style lang="scss">
@@ -25,13 +30,45 @@ const t = useTranslations("en");
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 5rem;
+  padding-top: 3rem;
+  padding-inline: var(--s-xxl);
+  margin-inline: calc(-1 * var(--s-xxl));
   gap: var(--s-db);
   position: relative;
-  background-image: var(--bg-space);
-  background-position: center 50%;
-  background-size: 35%;
-  background-repeat: repeat;
+  overflow: hidden;
+  
+  
+  @include media(sm) {
+    padding-top: 5rem;
+  }
+  
+  @include media(lg) {
+    padding-inline: var(--s-big);
+    margin-inline: calc(-1 * var(--s-big));
+  }
+}
+
+.hero::after {
+  content: '';
+  width: 100vw;
+  height: 50cqh;
+  background: linear-gradient(0deg, var(--c-primary) 0%, transparent 100%);
+  position: absolute;
+  bottom: 0;
+}
+
+.bg {
+  width: 200vw;
+  height: auto;
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  opacity: 0.75;
+  z-index: 0;
+  
+  @include media(sm) {
+    width: 100vw;
+  }
 }
 
 .title {
@@ -43,6 +80,8 @@ const t = useTranslations("en");
   font-weight: var(--fw-black);
   text-transform: uppercase;
   line-height: 0.8;
+  position: relative;
+  z-index: 1;
 }
 
 .img {
@@ -51,6 +90,7 @@ const t = useTranslations("en");
   position: absolute;
   top: 22cqw;
   left: 3cqw;
+  z-index: 2;
   
   @include media(sm) {
     top: 13cqw;
@@ -73,14 +113,54 @@ const t = useTranslations("en");
   }
 }
 
-.hero :global(.text) {
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: var(--s-big);
+.img2 {
+  width: 12cqw;
+  aspect-ratio: 1/1;
+  rotate: 10deg;
+  position: absolute;
+  top: 8cqw;
+  right: 6cqw;
+  z-index: 1;
+  
+  @include media(sm) {
+    top: 6cqw;
+    right: 5cqw;
+  }
+  
+  @include media(md) {
+    top: 4cqw;
+    right: 6cqw;
+  }
+  
+  @include media(lg) {
+    top: 5cqw;
+    right: 6cqw;
+  }
+  
+  @include media(xl) {
+    top: 5cqw;
+    right: 7cqw;
+  }
+}
+
+.hero article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s-big);
+  padding-inline: var(--s-xxl);
+  position: relative;
+  z-index: 1;
   
   @include media(lg) {
     max-width: 80vw;
   }
+}
+
+.hero :global(.text) {
+  text-align: center;
+  text-transform: uppercase;
 }
 
 </style>

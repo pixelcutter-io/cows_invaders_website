@@ -29,6 +29,8 @@ const { title, text, image, reverse, id } = Astro.props;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 'article' 'img';
+  position: relative;
+  z-index: 1;
   gap: 5vw;
   
   @include media(md) {
@@ -36,6 +38,7 @@ const { title, text, image, reverse, id } = Astro.props;
     grid-template-areas: 'article img';
     align-content: start;
   }
+  
 }
 
 .wrapper article {

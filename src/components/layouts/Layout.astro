@@ -39,16 +39,14 @@ const { theme = "home" } = Astro.props;
 		gap: var(--s-big);
 		
 		@include media(lg) {
-			gap: var(--s-qt);
+			padding-inline: var(--s-big);
+			gap: var(--s-sp);
 		}
   }
 	
 	.default {
 		padding-top: var(--s-qt);
 		
-		@include media(lg) {
-			padding-inline: var(--s-qt);
-		}
 	}
 
 
