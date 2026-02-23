@@ -1,43 +1,56 @@
-# Astro Starter Kit: Minimal
+# Cows Invaders – Website
 
-```sh
-bun create astro@latest -- --template minimal
+Official website for **Cows Invaders**, the mobile game where cows fight back against alien abductors.
+
+> Catch the aliens. Avenge the cows. Save the galaxy.
+
+## About the game
+
+On planet MOO42, the cows have had enough of being abducted by aliens. Pick your hero cow, set the difficulty level and catch as many aliens as you can. Available on iOS and Android.
+
+## Tech stack
+
+- [Astro](https://astro.build/) v5
+- SCSS (with global mixins via Vite)
+- [Biome](https://biomejs.dev/) for linting/formatting
+- i18n support via custom translation layer
+
+## Project structure
+
+```
+src/
+├── assets/          # Images and icons
+├── components/
+│   ├── blocks/      # Page sections (Hero, MediaText, CallToAction…)
+│   ├── layouts/     # Layout, Header, Footer, Section
+│   └── typography/  # Text rendering components
+├── i18n/            # Translations
+├── pages/           # Astro pages (index, privacy, credits)
+├── styles/          # SCSS (reset, colors, typography, layout, mixins)
+├── types/           # TypeScript types
+└── utils/           # Utilities (smooth scroll, dropdown)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Getting started
 
-## 🚀 Project Structure
+```bash
+# Install dependencies
+bun install
 
-Inside of your Astro project, you'll see the following folders and files:
+# Start dev server (localhost:4321)
+bun dev
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+# Build for production
+bun build
+
+# Preview production build
+bun preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Credits
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Designed and developed by [Pixelcutter](https://www.pixelcutter.io/).
 
-Any static assets, like images, can be placed in the `public/` directory.
+## License
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+All rights reserved. This source code is provided for reference purposes only.

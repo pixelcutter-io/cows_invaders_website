@@ -10,22 +10,28 @@ const { title } = Astro.props;
 ---
 
 <div class="hero">
+  <a href="/"><Typo text="Back to home" decoration="underline"/></a>
   <Typo class="title" text={title} tag="h1" weight="black" size={['tr', 'sp']} color="secondary" balancer/>
 </div>
 
 <style lang="scss">
 .hero {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 25vh;
-  max-width: var(--w-max-df);
-  margin-inline: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-big);
+  
+  @include media(lg) {
+    gap: var(--s-qt);
+  }
+
 }
 
 .hero :global(.title) {
+  max-width: var(--w-max-df);
   text-transform: uppercase;
   text-align: center;
+  margin-inline: auto;
 }
 
 </style>

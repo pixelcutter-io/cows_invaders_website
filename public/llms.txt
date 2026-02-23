@@ -1,0 +1,27 @@
+# Cows Invaders
+
+> Catch the aliens. Avenge the cows. Save the galaxy.
+
+## Cows vs Aliens
+
+On planet MOO42, the cows have had enough of being abducted by aliens. So they've decided to turn the tables.
+
+Galactic revenge is coming. But they need your help.
+
+Pick your hero cow, set the difficulty level and catch as many aliens as you can in the shortest time possible. Then brag to your friends about your contribution to the cause!
+
+## A Vintage origin
+
+Some time ago, while cleaning out the garage, little Misha found an old mechanical game from the '80s: one of the iconic Pocket Arcade series by Japanese toy maker Tomy, with its spring-loaded mechanism for shooting at aliens — clearly inspired by the legendary arcade classic Space Invaders.
+
+One memory led to another, and that's how the idea was born: bring back that gameplay and flip the script. For once, the aliens aren't the invaders... they're the prey.
+
+## A digital tailoring (family-run)
+
+We're not a multinational corporation. No fancy offices, no foosball tables, no free fruit... we're simply Sasha and Maurizio (aka Pixelcutter), two passionate creatives who, between one "serious" project and the next, love building things like this... just to feel like kids again!
+
+## Pages
+
+- [Home](https://cowsinvaders.com/)
+- [Privacy](https://cowsinvaders.com/privacy/)
+- [Credits](https://cowsinvaders.com/credits/)

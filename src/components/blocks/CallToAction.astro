@@ -1,9 +1,8 @@
 ---
 import { useTranslations } from "@/i18n/i18n";
-import type { AlignType, ColorType } from "../../types/components";
 import Typo from "../typography/Typo.astro";
 import AppStoreLink from "@/components/AppStoreLink.astro";
-import CtaImg from '@/assets/images/web_cta.png';
+// import CtaImg from '@/assets/images/web_cta.png';
 
 const t = useTranslations("en");
 ---
@@ -16,7 +15,7 @@ const t = useTranslations("en");
       tag="h2"
       weight="black"
       color="accent"
-      size={["tr", "sp"]}
+      size={["tr", "dc"]}
       align="center"
     />
     <AppStoreLink size="qr" gap="xxl"/>
@@ -44,7 +43,6 @@ const t = useTranslations("en");
   }
   
   .wrapper :global(.text) {
-    font-size: 7.5cqw;
     text-transform: uppercase;
   }
   

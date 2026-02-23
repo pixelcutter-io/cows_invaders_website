@@ -2,6 +2,7 @@
 import Apple from "@/assets/images/apple_store.svg";
 import Google from "@/assets/images/google_store.svg";
 import type {SizeType} from "@/types/components.ts";
+import Typo from "@/components/typography/Typo.astro";
 
 interface Props {
   size?: SizeType;
@@ -20,12 +21,13 @@ const style = {
 ---
 
 <div class="wrapper" style={style}>
-  <a href="">
-    <Apple width="100%" height={`var(--s-${size})`} />
-  </a>
-  <a href="">
-    <Google width="100%" height={`var(--s-${size})`}  />
-  </a>
+  <Typo text={'Coming soon to Apple Store and Google Play'} tag="p" size={'xxl'} weight="bold" align="center"/>
+  <!--<a href="">-->
+  <!--  <Apple width="100%" height={`var(&#45;&#45;s-${size})`} />-->
+  <!--</a>-->
+  <!--<a href="">-->
+  <!--  <Google width="100%" height={`var(&#45;&#45;s-${size})`}  />-->
+  <!--</a>-->
 </div>
 
 <style lang="scss">
