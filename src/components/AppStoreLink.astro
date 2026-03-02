@@ -3,6 +3,10 @@ import Apple from "@/assets/images/apple_store.svg";
 import Google from "@/assets/images/google_store.svg";
 import type {SizeType} from "@/types/components.ts";
 import Typo from "@/components/typography/Typo.astro";
+import Modal from "@/components/Modal.astro";
+import Button from "@/components/Button.astro";
+import {useTranslations} from "@/i18n/i18n.ts";
+
 
 interface Props {
   size?: SizeType;
@@ -18,40 +22,77 @@ const style = {
   "--l-h": `var(--s-${size})`,
   "--l-gap": `var(--s-${gap})`,
 };
+
+const t = useTranslations("en");
+const APPLE_STORE = "";
+const GOOGLE_STORE = "";
 ---
 
 <div class="wrapper" style={style}>
-  <Typo text={'Coming soon to Apple Store and Google Play'} tag="p" size={'xxl'} weight="bold" align="center"/>
-  <!--<a href="">-->
-  <!--  <Apple width="100%" height={`var(&#45;&#45;s-${size})`} />-->
-  <!--</a>-->
-  <!--<a href="">-->
-  <!--  <Google width="100%" height={`var(&#45;&#45;s-${size})`}  />-->
-  <!--</a>-->
+  <div class="link">
+    <a class="store-btn" href={APPLE_STORE}>
+      <Apple width="100%" height={`var(--s-${size})`} />
+    </a>
+    <button
+      class="store-btn"
+      aria-haspopup="dialog"
+      {...{ command: "show-modal", commandfor: "apk-modal-google" }}
+    >
+      <Google width="100%" height={`var(--s-${size})`} />
+    </button>
+  </div>
+  <Typo class="text" text={t('block.app_store.text')} size={'xl'} align="center" lineHeight="paragraph" />
+<Modal id="apk-modal-google" title={t('modal.app_store.title')} text={t('modal.app_store.text')}>
+  <Button
+    class="btn-modal"
+    label={t('action.download_apk')}
+    theme="fill"
+    size="tr"
+    labelColor="primary"
+    hoverBgColor="secondary"
+    bgColor="accent"
+    href="/downloads/cows-invaders.apk"
+  />
+</Modal>
 </div>
+
 
 <style lang="scss">
   .wrapper {
+    max-width: var(--w-max-xs);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-xxl);
+  }
+  
+  .link {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var(--l-gap);
   }
-  
-  .wrapper a {
+
+  .store-btn {
     height: var(--l-h);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     border-radius: calc(var(--l-h) * 0.15);
     transition: var(--transition-025);
+
+    &:active,
+    &:hover,
+    &:focus-visible {
+      outline: 0.125rem solid var(--c-accent);
+      outline-offset: 0.25rem;
+    }
   }
   
-  .wrapper a:active,
-  .wrapper a:hover ,
-  .wrapper a:focus-visible {
-    outline: 0.125rem solid var(--c-accent);
-    outline-offset: 0.25rem;
+  .wrapper :global(.btn-modal) {
+    min-width: 100%;
+    width: 100%;
   }
-  
-  
-  
-  
 </style>

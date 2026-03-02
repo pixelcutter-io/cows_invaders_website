@@ -1,0 +1,76 @@
+---
+import Typo from "@/components/typography/Typo.astro";
+import MarkdownText from "@/components/typography/MarkdownText.astro";
+import Button from "@/components/Button.astro";
+import Xmark from "@/assets/icons/xmark.svg";
+interface Props {
+  id: string;
+  title?: string;
+  text?: string;
+  closedby?: "none" | "closerequest" | "any";
+}
+
+const { id, title, text, closedby = "any" } = Astro.props;
+---
+
+<dialog id={id} closedby={closedby}>
+  <div class="inner">
+    <header class="header">
+      <Button
+        class="btn-menu"
+        icon={Xmark}
+        theme="ghost"
+        size="db"
+        labelColor="secondary"
+        hoverBgColor="secondary"
+        bgColor="secondary"
+        commandfor={id}
+        command="close"
+      />
+    </header>
+    <div class="body">
+      {title && <Typo text={title} tag="h2" size={['xxl', 'big']} weight="bold" />}
+      {text &&  <MarkdownText text={text} size={['df', 'xl']} color="secondary" />}
+    </div>
+    <slot />
+  </div>
+</dialog>
+
+<style lang="scss">
+  dialog {
+    max-width: 28rem;
+    width: calc(100% - 2rem);
+    border: none;
+    border-radius: var(--s-df);
+    padding: 0;
+    margin: auto;
+    background: var(--c-primary);
+    box-shadow: var(--sw-dp16);
+  }
+
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-xxs);
+    padding: var(--s-xxl);
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-df);
+    padding-bottom: var(--s-db);
+  }
+
+</style>

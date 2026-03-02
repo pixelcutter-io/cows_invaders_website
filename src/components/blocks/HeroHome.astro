@@ -18,7 +18,7 @@ const t = useTranslations("en");
   <img class="img" src={HeroImg.src} alt=""/>
   <img class="img2" src={HeroImg2.src} alt=""/>
   <article>
-    <Typo class="text" text={t("block.hero.text")} tag="p" weight="semi" size={["df", "tr"]} sizeIncrease={3} color="accent" balancer/>
+    <Typo class="text" text={t("block.hero.text")} tag="p" weight="semi" size={["df", "tr"]} sizeIncrease={3} color="accent" align="center" balancer/>
     <AppStoreLink size="qr" gap="xxl"/>
   </article>
 </div>
@@ -29,7 +29,6 @@ const t = useTranslations("en");
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding-top: 3rem;
   padding-inline: var(--s-xxl);
   margin-inline: calc(-1 * var(--s-xxl));
@@ -158,8 +157,7 @@ const t = useTranslations("en");
   }
 }
 
-.hero :global(.text) {
-  text-align: center;
+.hero > article > :global(.text) {
   text-transform: uppercase;
 }
 
