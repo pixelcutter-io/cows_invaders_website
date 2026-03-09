@@ -7,6 +7,11 @@ import Img1 from "@/assets/images/web_img_1.png";
 import Img2 from "@/assets/images/web_img_2.png";
 import {useTranslations} from "@/i18n/i18n.ts";
 import Text from "@/components/blocks/Text.astro";
+import Section from "@/components/layouts/Section.astro";
+import MarkdownText from "@/components/typography/MarkdownText.astro";
+import Typo from "@/components/typography/Typo.astro";
+import {GOOGLE_GROUP_LINK} from "@/utils/constants.ts";
+import Button from "@/components/Button.astro";
 
 const t = useTranslations("en");
 ---
@@ -15,7 +20,44 @@ const t = useTranslations("en");
   <HeroHome />
 	<MediaText id="game" title={t('block.media_game.title')} text={t('block.media_game.text')} image={Img1.src}/>
   <MediaText id="genesis" title={t('block.media_genesis.title')} text={t('block.media_genesis.text')} image={Img2.src} reverse/>
+  <Section class="beta-section" maxWidth="xxs">
+    <Typo text={t('block.cta_beta.title')} tag={"h2"} weight={"black"} color={"secondary"} size={["tr", "qr"]} align="center" />
+    <MarkdownText text={t('block.cta_beta.text')} color={"secondary"} size={['df', 'xxl']}  />
+    <Button
+      class="btn-beta"
+      label={t('action.join_beta')}
+      theme="fill"
+      size="tr"
+      labelColor="primary"
+      hoverBgColor="secondary"
+      bgColor="accent"
+      href={GOOGLE_GROUP_LINK}
+      target={'_blank'}
+    />
+  </Section>
   <Text id="about" title={t('block.media_about.title')} text={t('block.media_about.text')}/>
   <CallToAction/>
 </Layout>
 
+
+<style lang="scss">
+:global(.beta-section) {
+  max-width: var(--w-max-xxl);
+  padding-inline: var(--s-df);
+  padding-block: var(--s-xxl);
+  border-radius: var(--s-xxl);
+  background-color: color-mix(in srgb, var(--c-secondary), transparent 98%);
+  margin-inline: auto;
+  text-align: center;
+  
+  @include media(sm) {
+    padding-inline: var(--s-xxl);
+    padding-block: var(--s-tr);
+  }
+}
+
+:global(.beta-section) > :global(.btn-beta) {
+  width: 100%;
+  max-width: 20rem;
+}
+</style>

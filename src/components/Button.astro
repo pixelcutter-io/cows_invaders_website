@@ -5,6 +5,8 @@ import type {
 	ColorType,
 	IconPositionType,
 } from "../types/components";
+type HTMLAttributeAnchorTarget = astroHTML.JSX.HTMLAttributeAnchorTarget;
+
 
 interface Props {
 	icon?: any;
@@ -20,6 +22,7 @@ interface Props {
 	disabled?: boolean;
 	loading?: boolean;
 	href?: string;
+  target?: HTMLAttributeAnchorTarget;
 	onClick?: () => void;
 	commandfor?: string;
 	command?: string;
@@ -40,6 +43,7 @@ const {
 	disabled,
 	loading,
 	href,
+  target,
 	onClick,
 	commandfor,
 	command,
@@ -63,7 +67,7 @@ const sharedProps = {
 
 const tagProps = {
 	...sharedProps,
-	...(href && { href, role: "button" }),
+	...(href && { href, role: "button", target }),
 	...(!href && { type: "button", onClick, commandfor, command }),
 };
 ---
@@ -140,7 +144,8 @@ const tagProps = {
 
 // If fill, outline or ghost theme
 .fill,
-.ghost {
+.ghost,
+.outline {
   .label {
     padding-inline: calc(var(--l-size) / 1.5);
   }
@@ -153,7 +158,13 @@ const tagProps = {
 
 // If ghost theme
 .ghost {
-  background-color: color-mix(in srgb, var(--l-bg-color), transparent 90%);;
+  background-color: color-mix(in srgb, var(--l-bg-color), transparent 90%);
+}
+
+// If outline theme
+.outline {
+  background-color: transparent;
+  border: 2px solid var(--l-bg-color);
 }
 
 // If text theme

@@ -3,28 +3,26 @@ import Typo from '../typography/Typo.astro';
 
 interface Props {
   title: string;
+  text?: string;
 }
 
-const { title } = Astro.props;
+const { title, text } = Astro.props;
 
 ---
 
 <div class="hero">
   <a href="/"><Typo text="Back to home" decoration="underline"/></a>
   <Typo class="title" text={title} tag="h1" weight="black" size={['tr', 'sp']} color="secondary" balancer/>
+  {text && <Typo class="text" text={text} size={["df", "big"]} balancer/>}
 </div>
 
 <style lang="scss">
 .hero {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  gap: var(--s-big);
-  
-  @include media(lg) {
-    gap: var(--s-qt);
-  }
-
+  gap: var(--s-df);
 }
 
 .hero :global(.title) {
@@ -32,6 +30,18 @@ const { title } = Astro.props;
   text-transform: uppercase;
   text-align: center;
   margin-inline: auto;
+  margin-top: var(--s-xxl);
+  
+  @include media(lg) {
+    margin-top: var(--s-tr);
+  }
 }
+
+.hero :global(.text) {
+  max-width: var(--w-max-df);
+  text-align: center;
+  margin-inline: auto;
+}
+
 
 </style>

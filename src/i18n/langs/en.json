@@ -1,8 +1,14 @@
 {
 	"action.download_apk": "Download APK",
+	"action.join_beta": "Join the Beta",
 	"menu.about": "About",
 	"menu.game": "Game",
 	"menu.genesis": "Genesis",
+	"block.cta_beta.title": "Be part of the Android launch!",
+	"block.cta_beta.text": "Join the Android beta and help us land on Google Play.",
+	"block.hero_beta.title": "Android Beta",
+	"block.hero_beta.text": "Help us land on Google Play",
+	"block.media_beta.text": "Cows Invaders is already on iOS, now we need **Android testers** to unlock the Play Store. It takes 30 seconds and you get early access to the game:\n1. Click **Join the Beta**, it opens the Google Group: just hit join.\n2. Accept the Play Store invite to install the app directly from Google Play (no APK sideloading).\n3. Play for a few minutes, and keep app installed for at least 15 days, that's it! Feedback is welcome but not required, you're already helping us.",
 	"block.cta.text": "Cows need your help!",
 	"block.hero.text": "Catch the aliens. Avenge the cows. Save the galaxy.",
 	"footer.text": "©{{year}} Handcrafted by [Pixelcutter](https://www.pixelcutter.io/)",
@@ -17,7 +23,8 @@
 	"block.media_about.title": "A digital tailoring (family-run)",
 	"block.media_about.text": "We're not a multinational corporation. No fancy offices, no foosball tables, no free fruit... we're simply Sasha and Maurizio (aka [Pixelcutter](https://www.pixelcutter.io/)), two passionate creatives who, between one \"serious\" project and the next, love building things like this... just to feel like kids again!",
 	"modal.app_store.title": "Coming to Google Play!",
-	"modal.app_store.text": "Cows Invaders is coming to Google Play soon! While you wait, download the APK directly.\nHow to install:\n1. Download the APK\n2. Open the file on your Android device\n3. If prompted, allow installation from unknown sources\n4. Enjoy!",
+	"modal.app_store.text": "Cows Invaders is coming to Google Play very soon! Join the Android beta and be among the first to play!",
+	"modal.app_store.text_2": "Or download the APK directly: you may need to allow installation from unknown sources in your device settings",
 	"meta.title": "Cows Invaders – Galactic Revenge",
 	"meta.description": "Catch the aliens and help the cows of planet MOO42 get their revenge. Pick your hero cow and save the galaxy!"
 }

@@ -6,7 +6,8 @@ import Typo from "@/components/typography/Typo.astro";
 import Modal from "@/components/Modal.astro";
 import Button from "@/components/Button.astro";
 import {useTranslations} from "@/i18n/i18n.ts";
-
+import {APPLE_STORE, GOOGLE_APK, GOOGLE_GROUP_LINK} from "@/utils/constants.ts";
+import MarkdownText from "@/components/typography/MarkdownText.astro";
 
 interface Props {
   size?: SizeType;
@@ -24,9 +25,7 @@ const style = {
 };
 
 const t = useTranslations("en");
-const APPLE_STORE = "https://apps.apple.com/app/cows-invaders/id6759287551";
-const GOOGLE_STORE = "";
-const GOOGLE_APK = "https://github.com/pixelcutter-io/cows_invaders_website/releases/download/1.1.0/cows-invaders_v1.1.0.apk";
+
 ---
 
 <div class="wrapper" style={style}>
@@ -42,19 +41,31 @@ const GOOGLE_APK = "https://github.com/pixelcutter-io/cows_invaders_website/rele
       <Google width="100%" height={`var(--s-${size})`} />
     </button>
   </div>
-  <Typo class="text" text={t('block.app_store.text')} size={'xl'} align="center" lineHeight="paragraph" />
-<Modal id="apk-modal-google" title={t('modal.app_store.title')} text={t('modal.app_store.text')}>
-  <Button
-    class="btn-modal"
-    label={t('action.download_apk')}
-    theme="fill"
-    size="tr"
-    labelColor="primary"
-    hoverBgColor="secondary"
-    bgColor="accent"
-    href={GOOGLE_APK}
-  />
-</Modal>
+  <Typo class="text" text={t('block.app_store.text')} size={['md','lg']} align="center" lineHeight="paragraph" />
+  <Modal id="apk-modal-google" title={t('modal.app_store.title')} text={t('modal.app_store.text')}>
+    <Button
+      class="btn-modal"
+      label={t('action.join_beta')}
+      theme="fill"
+      size="tr"
+      labelColor="primary"
+      hoverBgColor="secondary"
+      bgColor="accent"
+      href={GOOGLE_GROUP_LINK}
+      target={'_blank'}
+    />
+    <MarkdownText text={t('modal.app_store.text_2')} size={'df'} color="secondary" />
+    <Button
+      class="btn-modal"
+      label={t('action.download_apk')}
+      theme="outline"
+      size="tr"
+      labelColor="secondary"
+      hoverBgColor="secondary"
+      bgColor="secondary"
+      href={GOOGLE_APK}
+    />
+  </Modal>
 </div>
 
 
