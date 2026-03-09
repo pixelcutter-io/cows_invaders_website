@@ -4,7 +4,9 @@ import { useTranslations } from "@/i18n/i18n";
 import Typo from "@/components/typography/Typo.astro";
 
 const t = useTranslations("en");
+const startYear = 2026;
 const currentYear = new Date().getFullYear();
+const yearDisplay = currentYear > startYear ? `${startYear}-${currentYear}` : `${currentYear}`;
 ---
 
 <footer class="footer">
@@ -15,7 +17,7 @@ const currentYear = new Date().getFullYear();
     <Typo text={'\u{02022}'}/>
     <a href="mailto:info@pixelcutter.io"><Typo text="Contacts" tag="p" size={'md'} decoration="underline"/></a>
   </div>
-  <MarkdownText text={t('footer.text', {year: currentYear.toString()})} size={'md'} color="secondary" />
+  <MarkdownText text={t('footer.text', {year: yearDisplay})} size={'md'} color="secondary" />
 </footer>
 
 
