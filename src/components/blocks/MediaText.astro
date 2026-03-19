@@ -15,7 +15,7 @@ const { title, text, image, reverse, id } = Astro.props;
 ---
 <div class:list={["wrapper", reverse && "reverse"]} id={id}>
   <article>
-    <Typo text={title} tag={"h2"} weight={"black"} color={"secondary"} size={["tr", "qr"]} balancer />
+    <Typo text={title} tag={"h2"} weight={"black"} color={"secondary"} size={["big", "qr"]} balancer />
     <MarkdownText text={text} color={"secondary"} size={['df', 'xxl']}  />
   </article>
   <img src={image} alt={title}/>

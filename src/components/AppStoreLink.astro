@@ -41,28 +41,14 @@ const t = useTranslations("en");
       <Google width="100%" height={`var(--s-${size})`} />
     </button>
   </div>
-  <Typo class="text" text={t('block.app_store.text')} size={['md','lg']} align="center" lineHeight="paragraph" />
+  <Typo class="text" text={t('block.app_store.text')} size={['sm','df']} align="center" lineHeight="paragraph" />
   <Modal id="apk-modal-google" title={t('modal.app_store.title')} text={t('modal.app_store.text')}>
     <Button
       class="btn-modal"
-      label={t('action.join_beta')}
+      label={t('action.download_apk')}
       theme="fill"
       size="tr"
-      labelColor="primary"
-      hoverBgColor="secondary"
       bgColor="accent"
-      href={GOOGLE_GROUP_LINK}
-      target={'_blank'}
-    />
-    <MarkdownText text={t('modal.app_store.text_2')} size={'df'} color="secondary" />
-    <Button
-      class="btn-modal"
-      label={t('action.download_apk')}
-      theme="outline"
-      size="tr"
-      labelColor="secondary"
-      hoverBgColor="secondary"
-      bgColor="secondary"
       href={GOOGLE_APK}
     />
   </Modal>
