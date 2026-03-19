@@ -11,11 +11,14 @@ const t = useTranslations("en");
 <Layout theme="default">
   <HeroPage title="Credits"/>
   <Section maxWidth="sm">
-    <MarkdownText class="privacy" text={t('credits.text')} color={"secondary"} size={['df', 'xxl']}  />
+    <MarkdownText class="credits" text={t('credits.text')} color={"secondary"} size={['df', 'xxl']}  />
   </Section>
 </Layout>
 
 <style lang="scss">
+  :global(.credits) {
+    text-align: center;
+  }
 
 </style>
 
